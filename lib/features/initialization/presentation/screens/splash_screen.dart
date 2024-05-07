@@ -1,0 +1,47 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:stash_android/core/extensions/localization_extension.dart';
+import 'package:stash_android/core/presentation/viewmodel/view_model_provider.dart';
+import 'package:stash_android/features/initialization/presentation/viewmodels/splash_view_model.dart';
+
+class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ViewModelProvider(
+      create: () => SplashViewModel(),
+      builder: (context) {
+        final viewModel = context.read<SplashViewModel>();
+
+        return Scaffold(
+          floatingActionButton: FloatingActionButton(
+            onPressed: viewModel.increment,
+            child: const Icon(Icons.add),
+          ),
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ValueListenableBuilder(
+                  valueListenable: viewModel.counter,
+                  builder: (context, count, _) {
+                    return Text(
+                      'Ella${'!' * count}',
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    );
+                  },
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  'Language: ${context.localization.language}',
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
