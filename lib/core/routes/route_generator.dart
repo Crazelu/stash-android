@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stash_android/core/routes/routes.dart';
+import 'package:stash_android/features/initialization/presentation/screens/contact/contact_home.dart';
 import 'package:stash_android/screens.dart';
 
 class RouteGenerator {
@@ -8,10 +9,15 @@ class RouteGenerator {
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.splashScreen:
-         return _getPageRoute(
+        return _getPageRoute(
           const SplashScreen(),
           Routes.splashScreen,
-         );
+        );
+      case Routes.contactScreen:
+        return _getPageRoute(
+          const ContactHomeScreen(),
+          Routes.contactScreen,
+        );
 
       default:
         return _getPageRoute(_errorScreen());
