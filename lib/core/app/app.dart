@@ -39,7 +39,7 @@ class _StashAppState extends State<StashApp> {
         ],
         supportedLocales: const [Locale('en')],
         onGenerateRoute: RouteGenerator.onGenerateRoute,
-        initialRoute: Routes.splashScreen,
+        initialRoute: Routes.contactScreen,
         navigatorKey: _navigatorKey,
         builder: (_, child) => NavigationListener(
           navigatorKey: _navigatorKey,
