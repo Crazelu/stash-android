@@ -96,34 +96,6 @@ class MainActivity : FlutterActivity() {
                                 result.error("INVALID_ARGUMENTS", "Invalid ID", null)
                             }
                         }
-                        "fetchContact" -> {
-                            val id = call.argument<Int>("id")
-                            if (id != null) {
-                                CoroutineScope(Dispatchers.IO).launch {
-                                    val contact = contactDao.fetchContact(id)
-                                    withContext(Dispatchers.Main) { // Ensure UI thread execution
-                                        if (contact != null) {
-                                            result.success(
-                                                    mapOf(
-                                                            "id" to contact.id,
-                                                            "firstName" to contact.firstName,
-                                                            "lastName" to contact.lastName,
-                                                            "number" to contact.number
-                                                    )
-                                            )
-                                        } else {
-                                            result.error(
-                                                    "NOT_FOUND",
-                                                    "No contact found with ID $id",
-                                                    null
-                                            )
-                                        }
-                                    }
-                                }
-                            } else {
-                                result.error("INVALID_ARGUMENTS", "Invalid ID", null)
-                            }
-                        }
                         else -> result.notImplemented()
                     }
                 }

@@ -17,8 +17,8 @@ interface ContactDao {
     @Delete
      fun delete(contactModel: ContactModel)
 
-    @Query("SELECT * FROM contact WHERE id = :contactId")
-     fun fetchContact(contactId: Int): ContactModel
+    @Query("SELECT * FROM contact WHERE number = :number")
+     fun fetchContact(number: String): ContactModel
 
     @Query("SELECT * FROM contact")
     fun getAllContacts(): List<ContactModel>

@@ -2,19 +2,19 @@ import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
 
-class ContactModel extends Equatable {
-  final int? id;
-  final String? firstName;
-  final String? lastName;
-  final String? number;
+class Contact extends Equatable {
+  final int id;
+  final String firstName;
+  final String lastName;
+  final String number;
 
-  const ContactModel({this.id, this.firstName, this.lastName, this.number});
+  const Contact({required this.id, required this.firstName, required this.lastName, required this.number});
 
-  factory ContactModel.fromMap(Map<String, dynamic> data) => ContactModel(
-        id: data['id'] as int?,
-        firstName: data['firstName'] as String?,
-        lastName: data['lastName'] as String?,
-        number: data['number'] as String?,
+  factory Contact.fromMap(Map<String, dynamic> data) => Contact(
+        id: data['id'] as int,
+        firstName: data['firstName'] as String,
+        lastName: data['lastName'] as String,
+        number: data['number'] as String,
       );
 
   Map<String, dynamic> toMap() => {
@@ -26,23 +26,23 @@ class ContactModel extends Equatable {
 
   /// `dart:convert`
   ///
-  /// Parses the string and returns the resulting Json object as [ContactModel].
-  factory ContactModel.fromJson(String data) {
-    return ContactModel.fromMap(json.decode(data) as Map<String, dynamic>);
+  /// Parses the string and returns the resulting Json object as [Contact].
+  factory Contact.fromJson(String data) {
+    return Contact.fromMap(json.decode(data) as Map<String, dynamic>);
   }
 
   /// `dart:convert`
   ///
-  /// Converts [ContactModel] to a JSON string.
+  /// Converts [Contact] to a JSON string.
   String toJson() => json.encode(toMap());
 
-  ContactModel copyWith({
+  Contact copyWith({
     int? id,
     String? firstName,
     String? lastName,
     String? number,
   }) {
-    return ContactModel(
+    return Contact(
       id: id ?? this.id,
       firstName: firstName ?? this.firstName,
       lastName: lastName ?? this.lastName,
