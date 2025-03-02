@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:stash_android/core/extensions/localization_extension.dart';
 import 'package:stash_android/core/presentation/viewmodel/view_model_provider.dart';
-import 'package:stash_android/features/initialization/presentation/viewmodels/contact_view_model.dart';
-import 'package:stash_android/features/initialization/presentation/widgets/contact_tile.dart';
+import 'package:stash_android/features/contact/presentation/viewmodels/contact_view_model.dart';
+import 'package:stash_android/features/contact/presentation/widgets/contact_tile.dart';
 
 class ContactHomeScreen extends StatefulWidget {
   const ContactHomeScreen({super.key});
@@ -23,7 +24,7 @@ class _ContactHomeScreenState extends State<ContactHomeScreen> {
         return Scaffold(
           appBar: AppBar(
             leading: Text(
-              'Stash',
+              context.localization.appTitle,
               style: Theme.of(context).textTheme.headlineLarge,
             ),
             leadingWidth: 90,
@@ -41,8 +42,10 @@ class _ContactHomeScreenState extends State<ContactHomeScreen> {
                   valueListenable: viewModel.contacts,
                   builder: (context, contacts, _) {
                     if (contacts.isEmpty) {
-                      return const Center(
-                        child: Text("It's super quiet in here 🙈"),
+                      return Center(
+                        child: Text(
+                          context.localization.homebody,
+                        ),
                       );
                     } else {
                       return Flexible(

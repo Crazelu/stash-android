@@ -5,11 +5,11 @@ class ContactTile extends StatelessWidget {
   const ContactTile({
     super.key,
     required this.contact,
-    this.onTap,
+    required this.onTap,
   });
 
   final Contact contact;
-  final Function(int id)? onTap;
+  final Function(int id) onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class ContactTile extends StatelessWidget {
         ),
       ),
       onTap: () {
-        onTap!(contact.id);
+        onTap(contact.id);
       },
       title: Text(
         contact.firstName,

@@ -10,4 +10,10 @@ class StashLocalizationsEn extends StashLocalizations {
 
   @override
   String get language => 'English';
+
+  @override
+  String get appTitle => 'Stash';
+
+  @override
+  String get homebody => 'It\'s super quiet in here 🙈';
 }

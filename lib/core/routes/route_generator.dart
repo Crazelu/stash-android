@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stash_android/core/routes/routes.dart';
-import 'package:stash_android/features/initialization/presentation/screens/contact/contact_home.dart';
+import 'package:stash_android/features/contact/presentation/screens/contact/contact_home.dart';
 
 class RouteGenerator {
   /// Generates routes, extracts and passes navigation arguments.
