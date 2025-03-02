@@ -98,6 +98,18 @@ abstract class StashLocalizations {
   /// In en, this message translates to:
   /// **'English'**
   String get language;
+
+  /// The title of the app
+  ///
+  /// In en, this message translates to:
+  /// **'Stash'**
+  String get appTitle;
+
+  /// Text displayed when there is no content
+  ///
+  /// In en, this message translates to:
+  /// **'It\'s super quiet in here 🙈'**
+  String get homebody;
 }
 
 class _StashLocalizationsDelegate extends LocalizationsDelegate<StashLocalizations> {

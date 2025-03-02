@@ -3,5 +3,13 @@
   "language": "English",
   "@language": {
     "description": "The current language"
+  },
+  "appTitle": "Stash",
+  "@appTitle": {
+    "description": "The title of the app"
+  },
+  "homebody": "It's super quiet in here 🙈",
+  "@homebody": {
+    "description": "Text displayed when there is no content"
   }
 }
